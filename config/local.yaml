@@ -1,0 +1,18 @@
+server:
+  port: 8008
+postgres:
+  host: 127.0.0.1
+  port: 5432
+  username: postgres
+  password: umex@123@456
+  database: umex
+  maxIdleConns: 10
+  maxOpenConns: 100
+  connectMaxLifeTime: 3600
+logger:
+  log_level: debug
+  file_log_name: "./storages/logs/dev.log"
+  max_size: 500
+  max_backups: 3
+  max_age: 28
+  compress: true
