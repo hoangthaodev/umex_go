@@ -22,10 +22,10 @@ func NewLogger(config setting.LoggerSetting) *LoggerZap {
 		MaxAge:     config.Max_age,
 		Compress:   config.Compress,
 	}
-	logLever := config.Log_lever
+	logLevel := config.Log_level
 	// debug->info->warn->error->fatal->panic
 	var level zapcore.Level
-	switch logLever {
+	switch logLevel {
 	case "debug":
 		level = zapcore.DebugLevel
 	case "info":

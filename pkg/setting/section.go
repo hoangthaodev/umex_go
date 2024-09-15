@@ -1,11 +1,17 @@
 package setting
 
 type Config struct {
-	Postgres PostgresSettings `mapstructure:"postgres"`
-	Logger   LoggerSetting    `mapstructure:"logger"`
+	Mysql  MysqlSettings `mapstructure:"mysql"`
+	Logger LoggerSetting `mapstructure:"logger"`
+	Server ServerConfig  `mapstructure:"server"`
 }
 
-type PostgresSettings struct {
+type ServerConfig struct {
+	Port int    `mapstructure:"port"`
+	Mode string `mapstructure:"mode"`
+}
+
+type MysqlSettings struct {
 	Host               string `mapstructure:"host"`
 	Port               int    `mapstructure:"port"`
 	Username           string `mapstructure:"username"`
@@ -17,7 +23,7 @@ type PostgresSettings struct {
 }
 
 type LoggerSetting struct {
-	Log_lever     string `mapstructure:"log_lever"`
+	Log_level     string `mapstructure:"log_level"`
 	File_log_name string `mapstructure:"file_log_name"`
 	Max_size      int    `mapstructure:"max_size"`
 	Max_age       int    `mapstructure:"max_age"`

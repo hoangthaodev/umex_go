@@ -1,9 +1,10 @@
 server:
   port: 8008
-postgres:
+  mode: "dev"
+mysql:
   host: 127.0.0.1
-  port: 5432
-  username: postgres
+  port: 3306
+  username: root
   password: umex@123@456
   database: umex
   maxIdleConns: 10

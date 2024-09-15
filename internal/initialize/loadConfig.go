@@ -17,7 +17,7 @@ func LoadConfig() {
 	// read configuration file
 	err := viper.ReadInConfig()
 	if err != nil {
-		panic(fmt.Errorf("failed to read config file: %w", err))
+		panic(fmt.Errorf("fail to read config file: %w", err))
 	}
 
 	// read server configuration

@@ -1,4 +1,17 @@
 SERVER = ./cmd/server/main.go
 
+GOOSE_DRIVER ?= mysql
+GOOSE_DBSTRING = "root:umex@123@456@tcp(127.0.0.1:3306)/umexdb"
+GOOSE_MIGRATION_DIR ?= sql/schema
+
 run:
 	@go run $(SERVER)
+
+up:
+	@GOOSE_DRIVER=$(GOOSE_DRIVER) GOOSE_DBSTRING=$(GOOSE_DBSTRING) goose -dir=$(GOOSE_MIGRATION_DIR) up
+down:
+	@GOOSE_DRIVER=$(GOOSE_DRIVER) GOOSE_DBSTRING=$(GOOSE_DBSTRING) goose -dir=$(GOOSE_MIGRATION_DIR) down
+reset:
+	@GOOSE_DRIVER=$(GOOSE_DRIVER) GOOSE_DBSTRING=$(GOOSE_DBSTRING) goose -dir=$(GOOSE_MIGRATION_DIR) reset
+
+.PHONY: run up down reset
