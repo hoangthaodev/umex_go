@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: umex@123@456
+      MYSQL_DATABASE: umex_db
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    container_name: mysqldb
+volumes:
+  mysql_data:

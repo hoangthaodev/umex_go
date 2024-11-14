@@ -1,0 +1,2 @@
+###
+POST http://localhost:8008/admin/user/register
